@@ -43,9 +43,9 @@ extern "C" {
 
 EmberStatus chipSendUnicast(void * exchangeContext, EmberApsFrame * apsFrame, uint16_t messageLength, uint8_t * message)
 {
-    chip::ExchangeContext * ec = reinterpret_cast<chip::ExchangeContext*>(exchangeContext);
-    uint16_t frameSize  = encodeApsFrame(nullptr, 0, apsFrame);
-    uint32_t dataLength = uint32_t(frameSize) + uint32_t(messageLength);
+    chip::ExchangeContext * ec = reinterpret_cast<chip::ExchangeContext *>(exchangeContext);
+    uint16_t frameSize         = encodeApsFrame(nullptr, 0, apsFrame);
+    uint32_t dataLength        = uint32_t(frameSize) + uint32_t(messageLength);
     if (dataLength > UINT16_MAX)
     {
         // Definitely too long for a packet!

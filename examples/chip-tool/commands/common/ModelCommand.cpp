@@ -75,7 +75,8 @@ void ModelCommand::OnMessage(ChipDeviceController * dc, PacketBuffer * buffer)
     UpdateWaitForResponse(false);
 }
 
-void ModelCommand::OnMessageReceived(chip::ExchangeContext * ec, const chip::PacketHeader & packetHeader, uint32_t protocolId, uint8_t msgType, chip::System::PacketBuffer * payload)
+void ModelCommand::OnMessageReceived(chip::ExchangeContext * ec, const chip::PacketHeader & packetHeader, uint32_t protocolId,
+                                     uint8_t msgType, chip::System::PacketBuffer * payload)
 {
     SetCommandExitStatus(ReceiveCommandResponse(payload));
     UpdateWaitForResponse(false);
@@ -106,7 +107,8 @@ exit:
 
 bool ModelCommand::SendCommand(ChipDeviceController * dc)
 {
-    if (mExchangeContext == nullptr) return false;
+    if (mExchangeContext == nullptr)
+        return false;
 
     // Make sure our buffer is big enough, but this will need a better setup!
     static const uint16_t bufferSize = 1024;

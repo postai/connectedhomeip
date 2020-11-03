@@ -79,7 +79,7 @@ void EchoCommand::ReceiveEcho(PacketBuffer * buffer) const
 
 CHIP_ERROR EchoCommand::Run(ChipDeviceController * dc, NodeId remoteId)
 {
-    CHIP_ERROR err = CHIP_NO_ERROR;
+    CHIP_ERROR err       = CHIP_NO_ERROR;
     ExchangeManager * em = nullptr;
     ExchangeContext * ec = nullptr;
 
@@ -103,12 +103,14 @@ CHIP_ERROR EchoCommand::Run(ChipDeviceController * dc, NodeId remoteId)
     }
 
 exit:
-    if (ec != nullptr) ec->Close();
+    if (ec != nullptr)
+        ec->Close();
 
     return err;
 }
 
-void EchoCommand::OnMessageReceived(ExchangeContext * ec, const PacketHeader & packetHeader, uint32_t protocolId, uint8_t msgType, System::PacketBuffer * payload)
+void EchoCommand::OnMessageReceived(ExchangeContext * ec, const PacketHeader & packetHeader, uint32_t protocolId, uint8_t msgType,
+                                    System::PacketBuffer * payload)
 {
     ReceiveEcho(payload);
 }

@@ -227,9 +227,8 @@ EmberAfCbkeKeyEstablishmentSuite emberAfIsFullSmartEnergySecurityPresent(void)
     return cbkeKeyEstablishmentSuite;
 }
 
-static EmberStatus send(EmberOutgoingMessageType type, void * exchangeContext, EmberApsFrame * apsFrame,
-                        uint16_t messageLength, uint8_t * message, bool broadcast, EmberNodeId alias, uint8_t sequence,
-                        EmberAfMessageSentFunction callback)
+static EmberStatus send(EmberOutgoingMessageType type, void * exchangeContext, EmberApsFrame * apsFrame, uint16_t messageLength,
+                        uint8_t * message, bool broadcast, EmberNodeId alias, uint8_t sequence, EmberAfMessageSentFunction callback)
 {
     EmberStatus status;
     uint8_t commandId;
@@ -306,8 +305,7 @@ static EmberStatus send(EmberOutgoingMessageType type, void * exchangeContext, E
     // prior to calling the send APIs.
     if (emberAfDetermineIfLinkSecurityIsRequired(commandId,
                                                  false, // incoming?
-                                                 broadcast, apsFrame->profileId, apsFrame->clusterId,
-                                                 exchangeContext))
+                                                 broadcast, apsFrame->profileId, apsFrame->clusterId, exchangeContext))
     {
         apsFrame->options |= EMBER_APS_OPTION_ENCRYPTION;
     }

@@ -312,7 +312,7 @@ CHIP_ERROR ChipDeviceController::EstablishSecureSession()
     SuccessOrExit(err);
 
     mExchangeManager = chip::Platform::New<ExchangeManager>();
-    err = mExchangeManager->Init(mSessionManager);
+    err              = mExchangeManager->Init(mSessionManager);
     mSessionManager->SetDelegate(mExchangeManager);
 
     err = mSessionManager->NewPairing(
@@ -520,7 +520,6 @@ void ChipDeviceController::DiscardCachedPackets()
     mNumCachedPackets = 0;
     CHIP_ZERO_AT(mCachedPackets);
 }
-
 
 CHIP_ERROR ChipDeviceController::ServiceEvents()
 {

@@ -53,7 +53,8 @@ public:
     void OnError(ChipDeviceController * dc, CHIP_ERROR err) override;
     void OnMessage(ChipDeviceController * dc, chip::System::PacketBuffer * buffer) override;
 
-    void OnMessageReceived(chip::ExchangeContext * ec, const chip::PacketHeader & packetHeader, uint32_t protocolId, uint8_t msgType, chip::System::PacketBuffer * payload) override;
+    void OnMessageReceived(chip::ExchangeContext * ec, const chip::PacketHeader & packetHeader, uint32_t protocolId,
+                           uint8_t msgType, chip::System::PacketBuffer * payload) override;
     void OnResponseTimeout(chip::ExchangeContext * ec) override;
 
     virtual uint16_t EncodeCommand(chip::System::PacketBuffer * buffer, uint16_t bufferSize, uint8_t endPointId) = 0;

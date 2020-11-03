@@ -48,7 +48,8 @@ namespace {
 class ServerCallback : public ExchangeContextDelegate
 {
 public:
-    void OnMessageReceived(ExchangeContext * ec, const PacketHeader & packetHeader, uint32_t protocolId, uint8_t msgType, System::PacketBuffer * buffer) override
+    void OnMessageReceived(ExchangeContext * ec, const PacketHeader & packetHeader, uint32_t protocolId, uint8_t msgType,
+                           System::PacketBuffer * buffer) override
     {
         const size_t data_len = buffer->DataLength();
 
@@ -71,10 +72,7 @@ public:
         }
     }
 
-    void OnResponseTimeout(ExchangeContext * ec) override
-    {
-        ChipLogProgress(AppServer, "Exchange %p timeout.", ec);
-    }
+    void OnResponseTimeout(ExchangeContext * ec) override { ChipLogProgress(AppServer, "Exchange %p timeout.", ec); }
 };
 
 DemoSessionManager gSessions;

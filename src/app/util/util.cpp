@@ -889,7 +889,7 @@ bool emberAfDetermineIfLinkSecurityIsRequired(uint8_t commandId, bool incoming, 
         }
 
         // Loopback packets do not require security
-        if (emberGetNodeId() == reinterpret_cast<chip::ExchangeContext*>(exchangeContext)->GetPeerNodeId())
+        if (emberGetNodeId() == reinterpret_cast<chip::ExchangeContext *>(exchangeContext)->GetPeerNodeId())
         {
             return false;
         }
@@ -984,7 +984,7 @@ uint8_t emberAfMaximumApsPayloadLength(EmberOutgoingMessageType type, EmberApsFr
         break;
     }
 
-    //max -= emberAfGetSourceRouteOverheadCallback();
+    // max -= emberAfGetSourceRouteOverheadCallback();
 
     return max;
 }

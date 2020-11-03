@@ -309,7 +309,7 @@ EmberStatus emberAfSendCommandUnicastToBindings(void)
 
 EmberStatus emberAfSendCommandMulticastToBindings(void)
 {
-//    return emberAfSendMulticastToBindings(emAfCommandApsFrame, *emAfResponseLengthPtr, emAfZclBuffer);
+    //    return emberAfSendMulticastToBindings(emAfCommandApsFrame, *emAfResponseLengthPtr, emAfZclBuffer);
     return 0;
 }
 

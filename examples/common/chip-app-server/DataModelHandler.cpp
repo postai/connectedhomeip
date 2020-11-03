@@ -61,9 +61,7 @@ void HandleDataModelMessage(void * exchangeContext, const PacketHeader & header,
     uint16_t messageLen = extractMessage(buffer->Start(), buffer->DataLength(), &message);
     ok                  = emberAfProcessMessage(&frame,
                                0, // type
-                               message, messageLen,
-                               exchangeContext,
-                               NULL);
+                               message, messageLen, exchangeContext, NULL);
 
     System::PacketBuffer::Free(buffer);
 
